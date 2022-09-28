@@ -106,12 +106,10 @@ class WebScraper:
 
 
     def driver_scraper(self):
-
         PATH = "C:\Program Files (x86)\chromedriver.exe"
         driver = webdriver.Chrome(PATH)
         os.environ['PATH'] += "C:/SeleniumDrivers"
         df = pd.read_csv('0x00sec_data.csv', index_col='URL')
-
 
         for column in df:
             url = str(df.iloc[i]['URL'])
@@ -119,27 +117,18 @@ class WebScraper:
             xpath_array = []
             driver.implicitly_wait(3)
 
-
-            #/html/body/section/div/div[2]/div/div[5]/div[2]/div/div/div[2]/table/tbody/tr[1340]/td[1]/span/a
-
-
-
+            #/html/body/section/div/div[2]/div/div[5]/div[2]/div/div/div[2]/table/tbody/tr[1340]/td[1]/span/
             #getting xpath info from posts and storing in array of xpaths
             match = False
             i = 1
             lenOfPage = 0
             lastCount = 0
 
-
             while i < 1340 and (match == False):
                 i = i + 1
-
-
-
-
-                 #   match = True
-                        #/html/body/section/div/div[2]/div/div[5]/div[2]/div/div/div[2]/table/tbody/tr[5]/td[1]/span/a
-                        #/html/body/section/div/div[2]/div/div[5]/div[2]/div/div/div[2]/table/tbody/tr[2]/td[1]/span/a
+                 #  match = True
+                 # /html/body/section/div/div[2]/div/div[5]/div[2]/div/div/div[2]/table/tbody/tr[5]/td[1]/span/a
+                 # /html/body/section/div/div[2]/div/div[5]/div[2]/div/div/div[2]/table/tbody/tr[2]/td[1]/span/a
                 path = "/html/body/section/div/div[2]/div/div[5]/div[2]/div/div/div[2]/table/tbody/tr["+ str(i)+"]/td[1]/span/a"
                 try:
 
